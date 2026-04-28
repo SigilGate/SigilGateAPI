@@ -35,7 +35,7 @@ func ParseNodeRole(s string) (NodeRole, error) {
 		return nr, nil
 	}
 	return "", &ValidationError{
-		Field:   "node_role",
+		Field:   "role",
 		Message: "unrecognized node role: " + s,
 	}
 }
