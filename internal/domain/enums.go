@@ -3,8 +3,8 @@ package domain
 type Status string
 
 const (
-	StatusActive    Status = "active"
-	StatusInactive  Status = "inactive"
+	StatusActive   Status = "active"
+	StatusInactive Status = "inactive"
 	StatusArchived Status = "archived"
 )
 
