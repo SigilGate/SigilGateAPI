@@ -19,9 +19,9 @@ const (
 func ParseStatus(s string) (Status, error) {
 	switch Status(s) {
 	case StatusActive, StatusInactive, StatusArchived:
-		return Status, nil
+		return Status(s), nil
 	}
-	return "", &ValidadionError{
+	return "", &ValidationError{
 		Field:   "status",
 		Message: "Unrecognized status: " + s}
 }
@@ -29,9 +29,9 @@ func ParseStatus(s string) (Status, error) {
 func ParseNodeRole(s string) (NodeRole, error) {
 	switch NodeRole(s) {
 	case NodeRoleCore, NodeRoleEntry, NodeRoleMgmt:
-		return NodeRole, nil
+		return NodeRole(s), nil
 	}
 	return "", &ValidationError{
-		Field:   "Node role",
+		Field:   "node_role",
 		Message: "Unrecognized node role: " + s}
 }
