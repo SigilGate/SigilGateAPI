@@ -17,23 +17,25 @@ const (
 )
 
 func ParseStatus(s string) (Status, error) {
-	switch Status(s) {
+	st := Status(s)
+	switch st {
 	case StatusActive, StatusInactive, StatusArchived:
-		return Status(s), nil
+		return st, nil
 	}
 	return "", &ValidationError{
 		Field:   "status",
-		Message: "Unrecognized status: " + s,
+		Message: "unrecognized status: " + s,
 	}
 }
 
 func ParseNodeRole(s string) (NodeRole, error) {
-	switch NodeRole(s) {
+	nr := NodeRole(s)
+	switch nr {
 	case NodeRoleCore, NodeRoleEntry, NodeRoleMgmt:
-		return NodeRole(s), nil
+		return nr, nil
 	}
 	return "", &ValidationError{
 		Field:   "node_role",
-		Message: "Unrecognized node role: " + s,
+		Message: "unrecognized node role: " + s,
 	}
 }
