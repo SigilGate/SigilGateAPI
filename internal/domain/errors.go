@@ -25,7 +25,7 @@ func (e *AlreadyExistsError) Error() string {
 }
 
 type ValidationError struct {
-	Field    string
+	Field   string
 	Message string
 }
 
