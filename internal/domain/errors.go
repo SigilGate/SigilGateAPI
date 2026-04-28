@@ -6,31 +6,31 @@ import (
 )
 
 type NotFoundError struct {
-	Resourse string
+	Resource string
 	ID       string
 }
 
 
 func (e *NotFoundError) Error() string {
-	return fmt.Sprintf("%s %f not found", e.Resourse, e.ID)
+	return fmt.Sprintf("%s %s not found", e.Resource, e.ID)
 }
 
-type AlreadyExist struct {
-	Resourse string
+type AlreadyExistsError struct {
+	Resource string
 	ID       string
 }
 
-func (e *AlreadyExist) Error() string {
-	return fmt.Sprintf("%s %f already exists", e.Resourse, e.ID)
+func (e *AlreadyExistsError) Error() string {
+	return fmt.Sprintf("%s %s already exists", e.Resource, e.ID)
 }
 
 type ValidationError struct {
 	Field    string
-	Messsage string
+	Message string
 }
 
 func (e *ValidationError) Error() string {
-  return fmt.Sprintf("validation error on field %q: %s", e.Field, e.Message)
+	return fmt.Sprintf("validation error on field %q: %s", e.Field, e.Message)
 }
 
 type EtcdError struct {
@@ -38,20 +38,16 @@ type EtcdError struct {
 }
 
 func (e *EtcdError) Error() string {
-  return fmt.Sprintf("ETCD storage error: %v", e.EtcdErrorMessage)
-}
-
-func (e *EtcdError) Unwrap() string {
-  return e.EtcdErrorMessage
+	return fmt.Sprintf("ETCD storage error: %v", e.EtcdErrorMessage)
 }
 
 type TokenExpired struct {
-  Token     string
+	Token     string
 	ExpiredAt time.Time
 }
 
 func (e *TokenExpired) Error() string {
-	return fmt.Sprintf("token % was expired at %", e.Token, e.ExpiredAt)
+	return fmt.Sprintf("token %s was expired at %v", e.Token, e.ExpiredAt)
 }
 
 type TokenConsumed struct {
@@ -59,5 +55,5 @@ type TokenConsumed struct {
 }
 
 func (e *TokenConsumed) Error() string {
-	return fmt.Sprintf("% was consumed", e.Token)
+	return fmt.Sprintf("%s was consumed", e.Token)
 }
