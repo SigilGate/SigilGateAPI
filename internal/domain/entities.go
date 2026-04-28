@@ -8,18 +8,18 @@ type User struct {
     Status         Status
     StatusAt       time.Time
     HashTelegramID *string
-    Created        time.Time
+    CreatedAt      time.Time
     CoreNodes      []NodeIP
 }
 
 type Device struct {
-    UUID     DeviceUUID
-    UserID   UserID
-    Name     string
-    Status   Status
-    StatusAt time.Time
-    Created  time.Time
-    CoreNode *NodeIP
+    UUID      DeviceUUID
+    UserID    UserID
+    Name      string
+    Status    Status
+    StatusAt  time.Time
+    CreatedAt time.Time
+    CoreNode  *NodeIP
 }
 
 type Node struct {
@@ -55,5 +55,5 @@ type JoinToken struct {
     Used           bool
     CellDomain     CellDomain
     NodeNumber     int
-    AssignedDomain string string // "{NodeNumber}.core.{CellDomain}"
+    AssignedDomain string // "{NodeNumber}.core.{CellDomain}"
 }
