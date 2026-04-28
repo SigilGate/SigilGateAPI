@@ -10,7 +10,6 @@ type NotFoundError struct {
 	ID       string
 }
 
-
 func (e *NotFoundError) Error() string {
 	return fmt.Sprintf("%s %s not found", e.Resource, e.ID)
 }
@@ -34,26 +33,26 @@ func (e *ValidationError) Error() string {
 }
 
 type EtcdError struct {
-	EtcdErrorMessage string
+	Message string
 }
 
 func (e *EtcdError) Error() string {
-	return fmt.Sprintf("ETCD storage error: %v", e.EtcdErrorMessage)
+	return fmt.Sprintf("ETCD storage error: %s", e.Message)
 }
 
-type TokenExpired struct {
+type TokenExpiredError struct {
 	Token     string
 	ExpiredAt time.Time
 }
 
-func (e *TokenExpired) Error() string {
+func (e *TokenExpiredError) Error() string {
 	return fmt.Sprintf("token %s was expired at %v", e.Token, e.ExpiredAt)
 }
 
-type TokenConsumed struct {
+type TokenConsumedError struct {
 	Token string
 }
 
-func (e *TokenConsumed) Error() string {
-	return fmt.Sprintf("%s was consumed", e.Token)
+func (e *TokenConsumedError) Error() string {
+	return fmt.Sprintf("token %s has already been consumed", e.Token)
 }
