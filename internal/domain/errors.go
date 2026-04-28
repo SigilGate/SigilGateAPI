@@ -37,7 +37,7 @@ type EtcdError struct {
 }
 
 func (e *EtcdError) Error() string {
-	return fmt.Sprintf("ETCD storage error: %s", e.Message)
+	return fmt.Sprintf("etcd storage error: %s", e.Message)
 }
 
 type TokenExpiredError struct {
@@ -46,7 +46,7 @@ type TokenExpiredError struct {
 }
 
 func (e *TokenExpiredError) Error() string {
-	return fmt.Sprintf("token %s was expired at %v", e.Token, e.ExpiredAt)
+	return fmt.Sprintf("token %s expired at %v", e.Token, e.ExpiredAt)
 }
 
 type TokenConsumedError struct {
