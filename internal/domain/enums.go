@@ -23,7 +23,8 @@ func ParseStatus(s string) (Status, error) {
 	}
 	return "", &ValidationError{
 		Field:   "status",
-		Message: "Unrecognized status: " + s}
+		Message: "Unrecognized status: " + s
+	}
 }
 
 func ParseNodeRole(s string) (NodeRole, error) {
@@ -33,5 +34,6 @@ func ParseNodeRole(s string) (NodeRole, error) {
 	}
 	return "", &ValidationError{
 		Field:   "node_role",
-		Message: "Unrecognized node role: " + s}
+		Message: "Unrecognized node role: " + s
+	}
 }
