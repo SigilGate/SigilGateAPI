@@ -2,7 +2,7 @@ package adapter
 
 import (
 	"context"
-	"port"
+	"github.com/SigilGate/SigilGateAPI/internal/port"
 	"strings"
     "sync"
 )
@@ -56,7 +56,7 @@ func (e *InMemoryETCD) PrefixScan(_ context.Context, prefix string) (map[string]
 	return m, nil
 }
 
-func (e *InMemoryETCD) Txn(_ context.Context, ops []TxnOp) error {
+func (e *InMemoryETCD) Txn(_ context.Context, ops []port.TxnOp) error {
 	e.mu.Lock()
 	defer e.mu.Unlock()
 	for _, op := range ops {

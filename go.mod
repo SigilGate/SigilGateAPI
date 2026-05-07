@@ -1,4 +1,4 @@
-module github.com/sigilgate/sigilgateapp
+module github.com/SigilGate/SigilGateAPI
 
 go 1.22.0
 
