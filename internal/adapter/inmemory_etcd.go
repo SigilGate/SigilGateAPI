@@ -2,8 +2,9 @@ package adapter
 
 import (
 	"context"
-    "sync"
+	"port"
 	"strings"
+    "sync"
 )
 
 type InMemoryETCD struct {
