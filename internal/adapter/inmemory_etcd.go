@@ -1,6 +1,7 @@
-package inmemory_etcd
+package adapter
 
 import (
+	"context"
     "sync"
 	"strings"
 )
