@@ -7,7 +7,7 @@ type FakeRandom struct {
 }
 
 func NewFakeRandom() *FakeRandom {
-	return &FakeRandom
+	return &FakeRandom{}
 }
 
 func (r *FakeRandom) UUID() string {
