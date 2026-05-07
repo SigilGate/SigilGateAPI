@@ -29,6 +29,7 @@ func (e *InMemoryETCD) Get(_ context.Context, key string) (*string, error) {
 func (e *InMemoryETCD) Put(_ context.Context, key, value string) error {
 	e.mu.Lock()
 	defer e.mu.Unlock()
+
 	e.store[key] = value
 	return nil
 }
@@ -36,9 +37,8 @@ func (e *InMemoryETCD) Put(_ context.Context, key, value string) error {
 func (e *InMemoryETCD) Delete(_ context.Context, key string) error {
 	e.mu.Lock()
 	defer e.mu.Unlock()
-	if _, ok := e.store[key]; ok {
-		delete(e.store, key)
-	}
+
+	delete(e.store, key)
 	return nil
 }
 
