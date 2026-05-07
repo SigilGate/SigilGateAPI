@@ -1,4 +1,4 @@
-package fake_clock
+package adapter
 
 import "time"
 
