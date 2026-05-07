@@ -1,4 +1,4 @@
-package fake_random
+package adapter
 
 import "fmt"
 
