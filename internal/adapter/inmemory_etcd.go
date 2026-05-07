@@ -62,7 +62,7 @@ func (e *InMemoryETCD) Txn(_ context.Context, ops []TxnOp) error {
 		if op.Value==nil {
 			delete(e.store, op.Key)
 		} else {
-			s.store[op.Key] = op.Value
+			e.store[op.Key] = *op.Value
 		}
 	}
 	return nil
