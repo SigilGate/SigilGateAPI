@@ -12,6 +12,8 @@ type InMemoryETCD struct {
 	store map[string]string
 }
 
+var _ port.EtcdPort = (*InMemoryETCD)(nil)
+
 func NewInMemoryETCD() *InMemoryETCD {
 	return &InMemoryETCD{store: make(map[string]string)}
 }
