@@ -1,10 +1,15 @@
 package adapter
 
-import "fmt"
+import (
+	    "fmt"
+	    "github.com/SigilGate/SigilGateAPI/internal/port"
+	    )
 
 type FakeRandom struct {
 	counter int
 }
+
+var _ port.RandomPort = (*FakeRandom)(nil)
 
 func NewFakeRandom() *FakeRandom {
 	return &FakeRandom{}
